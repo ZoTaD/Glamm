@@ -51,17 +51,17 @@ function App() {
             {[
               {
                 title: "Dermaplanning",
-                image: "src/images/Dermaplanning.jpg",
+                image: "public/images/Dermaplanning.jpg",
                 description: "Transforma tu piel con dermaplaning, logrando una textura suave y un tono uniforme desde la primera sesion"
               },
               {
                 title: "Tratamiento acne",
-                image: "src/images/tratamiento-limpieza-facial-acne-1200x800.jpg",
+                image: "public/images/tratamiento-limpieza-facial-acne-1200x800.jpg",
                 description: "El Tratamiento para Acné está diseñado para controlar la producción de sebo y minimizar brotes."
               },
               {
                 title: "Hiperpigmentaciones",
-                image: "src/images/microdermoabrasion-tratamiento.jpg",
+                image: "public/images/microdermoabrasion-tratamiento.jpg",
                 description: "Nuestro Tratamiento para Hiperpigmentaciones tiene como objetivo unificar el tono de la piel y reducir la apariencia de manchas."
               }
             ].map((service, index) => (

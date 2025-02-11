@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ClipboardCheck, Bandage, Activity, Phone,  Instagram } from 'lucide-react';
+import { Sparkles, ClipboardCheck, Bandage, Activity, MessageSquare, Instagram } from 'lucide-react';
 
 function App() {
   return (
@@ -7,14 +7,14 @@ function App() {
       {/* Hero Section */}
       <header className="relative h-screen">
         <div className="absolute inset-0">
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80"
-            alt="Salon background" 
+            alt="Salon background"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
+
         <nav className="relative z-10 flex justify-between items-center px-6 py-4">
           <h1 className="text-3xl font-bold text-white flex items-center gap-2">
             <Sparkles className="w-8 h-8" />
@@ -34,8 +34,8 @@ function App() {
           <p className="text-xl text-gray-200 mb-8 max-w-2xl">
             Descubre una experiencia única de belleza y bienestar en Glamm Estética
           </p>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="bg-black !important text-white px-8 py-3 rounded-full hover:bg-gray-800 transition"
           >
             Reserva tu cita
@@ -64,11 +64,11 @@ function App() {
                 image: "/images/microdermoabrasion-tratamiento.jpg",
                 description: "Nuestro Tratamiento para Hiperpigmentaciones tiene como objetivo unificar el tono de la piel y reducir la apariencia de manchas."
               }
-              
+
             ].map((service, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-48 object-cover"
                 />
@@ -100,57 +100,29 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Contáctanos</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <Phone className="w-6 h-6 text-black-500" />
-                <div>
-                  <h3 className="font-semibold">Teléfono</h3>
-                  <p>+1 234 567 890</p>
-                </div>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <a href="#" className="text-black-500 hover:text-black-600">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                {/* <a href="#" className="text-black-500 hover:text-black-600">
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-black-500 hover:text-black-600">
-                  <Mail className="w-6 h-6" />
-                </a> */}
-              </div>
-            </div>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Nombre"
-                className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-pink-500"
-              />
-              {/* <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-pink-500"
-              /> */}
-              <textarea
-                placeholder="Mensaje"
-                rows={4}
-                className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-pink-500"
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-black !important text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
+      {/* Contacto */}
+      <section id="contacto" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="bg-gray-900 !important rounded-2xl p-12 text-center text-white">
+            <h2 className="text-3xl font-bold mb-6">¿Listo para transformar tu piel?  </h2>
+            <p className="text-xl mb-8">
+              Hablemos de cómo diseñar un tratamiento 100% personalizado que resalte tu belleza natural y cuide la salud de tu piel. ¡Tu mejor versión empieza acá!
+            </p>
+            <div className="flex justify-center space-x-6">
+              <a
+                href="https://wa.me/5492323510968?text=Hola%20glamm%20estetica,%20quiero%20transformar%20mi%20piel%20coordinamos%20un%20turno?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 flex items-center"
               >
-                Enviar Mensaje
-              </button>
-            </form>
+                <MessageSquare className="mr-2 h-5 w-5" />
+                Comienza tu Cambio
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-6">
@@ -173,7 +145,7 @@ function App() {
           <div>
             <h4 className="font-semibold mb-4">Síguenos</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="https://www.instagram.com/glamm.estetica_?igsh=N2I0eW5iNG9kbDky" className="text-gray-400 hover:text-white">
                 <Instagram className="w-6 h-6" />
               </a>
               {/* <a href="#" className="text-gray-400 hover:text-white">

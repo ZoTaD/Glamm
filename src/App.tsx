@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, ClipboardCheck, Bandage, Activity, MessageSquare, Instagram } from 'lucide-react';
+import Services from './services';
 
 function App() {
   return (
@@ -35,7 +36,9 @@ function App() {
             Descubre una experiencia única de belleza y bienestar en Glamm Estética
           </p>
           <a
-            href="#contact"
+            href="https://wa.me/5492323510968?text=Hola%20glamm%20estetica,%20quiero%20transformar%20mi%20piel%20coordinamos%20un%20turno?"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-black !important text-white px-8 py-3 rounded-full hover:bg-gray-800 transition"
           >
             Reserva tu cita
@@ -46,39 +49,7 @@ function App() {
       {/* Services Section */}
       <section id="services" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Nuestros Servicios</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Dermaplanning",
-                image: "/images/Dermaplanning.jpg",
-                description: "Transforma tu piel con dermaplaning, logrando una textura suave y un tono uniforme desde la primera sesión."
-              },
-              {
-                title: "Tratamiento acné",
-                image: "/images/tratamiento-limpieza-facial-acne-1200x800.jpg",
-                description: "El Tratamiento para Acné está diseñado para controlar la producción de sebo y minimizar brotes."
-              },
-              {
-                title: "Hiperpigmentaciones",
-                image: "/images/microdermoabrasion-tratamiento.jpg",
-                description: "Nuestro Tratamiento para Hiperpigmentaciones tiene como objetivo unificar el tono de la piel y reducir la apariencia de manchas."
-              }
-
-            ].map((service, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Services />
         </div>
       </section>
 
@@ -95,6 +66,7 @@ function App() {
 
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.desc}</p>
+
             </div>
           ))}
         </div>

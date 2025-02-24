@@ -12,11 +12,11 @@ const services: Record<ServiceCategory, { title: string; image: string; descript
     { title: "Hiperpigmentaciones", image: "/images/microdermoabrasion-tratamiento.jpg", description: "Nuestro Tratamiento para Hiperpigmentaciones tiene como objetivo unificar el tono de la piel y reducir la apariencia de manchas.", masInfo: "El tratamiento incluye microdermoabrasión, peeling químico y aplicación de productos despigmentantes." }
   ],
   miradaPerfecta: [
-    { title: "Lifting de Pestañas", image: "/images/lifting-pestanas.jpg", description: "Levanta y realza tus pestañas naturales sin necesidad de extensiones.", masInfo: "El Lifting de Pestañas es un tratamiento que curva y alarga las pestañas naturales para un efecto de mayor longitud y volumen." },
+    { title: "Lifting de Pestañas", image: "/images/lifting.png", description: "Levanta y realza tus pestañas naturales sin necesidad de extensiones.", masInfo: "El Lifting de Pestañas es un tratamiento que curva y alarga las pestañas naturales para un efecto de mayor longitud y volumen." },
 
-    { title: "Laminado de Cejas", image: "/images/laminado-cejas.jpg", description: "Dale forma y estructura a tus cejas con un acabado natural y duradero.", masInfo: "El Laminado de Cejas es un tratamiento que fija y moldea las cejas para un efecto de mayor densidad y definición." },
+    { title: "Laminado de Cejas", image: "/images/laminado.jpg", description: "Dale forma y estructura a tus cejas con un acabado natural y duradero.", masInfo: "El Laminado de Cejas es un tratamiento que fija y moldea las cejas para un efecto de mayor densidad y definición." },
 
-    { title: "Extensiones de Pestañas", image: "/images/extensiones-pestanas.jpg", description: "Aporta volumen y longitud a tus pestañas con un look natural o dramático.", masInfo: "Las Extensiones de Pestañas son fibras sintéticas que se adhieren a las pestañas naturales para un efecto de mayor longitud y volumen." }
+    { title: "Extensiones de Pestañas", image: "/images/extension.jpg", description: "Aporta volumen y longitud a tus pestañas con un look natural o dramático.", masInfo: "Las Extensiones de Pestañas son fibras sintéticas que se adhieren a las pestañas naturales para un efecto de mayor longitud y volumen." }
   ]
 };
 

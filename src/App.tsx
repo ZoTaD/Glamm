@@ -54,7 +54,7 @@ function App() {
       </section>
 
       {/* Features */}
-      <section className="bg-gray-100  py-20 px-6">
+      <section className="bg-gray-200  py-20 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {[
             { icon: ClipboardCheck, title: "Anamnesis", desc: "Evaluamos tu historial médico y analizamos tus necesidades específicas" },

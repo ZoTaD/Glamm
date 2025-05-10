@@ -1,5 +1,4 @@
-// src/App.tsx
-import React from 'react';
+
 import { Sparkles, ClipboardCheck, Bandage, Activity, MessageSquare, Instagram } from 'lucide-react';
 import Services from './services';
 import BackgroundVideo from './background';

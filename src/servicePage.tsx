@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { services } from "./services";
-import { Service } from "./types";
+import { Service, FAQItem } from "./types";
 import "./index.css";
 
 const ServicePage: React.FC = () => {
@@ -83,12 +83,10 @@ const ServicePage: React.FC = () => {
                     <h3 className="text-xl font-semibold mb-2">
                         Preguntas frecuentes
                     </h3>
-                    {current.faq.map((item, idx) => (
+                    {current.faq.map((item: FAQItem, idx: number) => (
                         <div key={idx} className="border-t border-gray-200">
                             <button
-                                onClick={() =>
-                                    setFaqOpen(faqOpen === idx ? null : idx)
-                                }
+                                onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}
                                 className="w-full flex justify-between items-center py-3 text-left text-gray-800 hover:text-gray-900 transition rounded-full px-4"
                             >
                                 <span>{item.q}</span>
@@ -119,8 +117,7 @@ const ServicePage: React.FC = () => {
                     Comenzá tu transformación
                 </h3>
                 <p className="text-gray-700 mb-6">
-                    Rejuvenecé tu rostro con un equipo especializado y tecnologías de
-                    avanzada. Nos encontramos en Lujan, Buenos Aires.
+                    Rejuvenecé tu rostro con un equipo especializado y tecnologías de avanzada. Nos encontramos en Lujan, Buenos Aires.
                 </p>
                 <button className="bg-amber-500 text-white px-6 py-2 rounded-full uppercase font-semibold hover:bg-amber-600 transition">
                     Agendá una visita

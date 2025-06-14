@@ -1,38 +1,55 @@
 
 import { Sparkles, ClipboardCheck, Bandage, Activity, MessageSquare, Instagram } from 'lucide-react';
 import Services from './services';
-import BackgroundVideo from './background';
+// import BackgroundVideo from './background';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
       <header className="relative h-screen">
-        <BackgroundVideo />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/images/WhatsApp Image 2025-06-14 at 15.01.35.jpeg')`
+          }}
+        >
+          {/* Overlay sutil para mejorar legibilidad */}
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-        <nav className="relative z-10 flex justify-between items-center px-6 py-4">
-          <div className="hidden md:flex gap-8 text-white">
-            <a href="#services" className="hover:text-pink-300 transition">Servicios</a>
-            <a href="#about" className="hover:text-pink-300 transition">Nosotros</a>
-            <a href="#contact" className="hover:text-pink-300 transition">Contacto</a>
+        <nav className="relative z-10 flex justify-between items-center px-6 py-6">
+          <div className="flex items-center">
+            <h1 className="text-2xl font-heading font-bold text-white">
+
+              Glamm Estética
+            </h1>
+          </div>
+          <div className="hidden md:flex gap-8">
+            <a href="#services" className="text-white hover:text-orange-300 transition font-medium">Servicios</a>
+            <a href="#contacto" className="text-white hover:text-orange-300 transition font-medium">Contacto</a>
           </div>
         </nav>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-[calc(100vh-80px)] text-center px-4">
-          <h2 className="text-5xl md:text-7xl font-heading text-white mb-6">
-            Glamm Estetica
+        <div className="relative z-10 flex flex-col items-center justify-center h-[calc(100vh-120px)] text-center px-6">
+          <h2 className="text-3xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+            Donde la ciencia y la belleza se encuentran
           </h2>
-          <p className="text-xl text-gray-200 mb-8 text-base font-sans max-w-2xl">
-            Donde la ciencia y la belleza se encuentran.
-          </p>
-          <a
-            href="https://wa.me/5492323510968?text=Hola%20glamm%20estetica,%20quiero%20transformar%20mi%20piel%20coordinamos%20un%20turno?"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-900 text-white px-8 py-3 rounded-full hover:bg-gray-800 transition"
-          >
-            Reserva tu cita
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://wa.me/5492323510968?text=Hola%20glamm%20estetica,%20quiero%20transformar%20mi%20piel%20coordinamos%20un%20turno?"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-gray-900 px-8 py-4 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
+            >
+              Reserva tu cita
+            </a>
+            <a
+              href="#services"
+              className="border-2 border-white text-white px-8 py-4 font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+            >
+              Ver servicios
+            </a>
+          </div>
         </div>
       </header>
 
@@ -43,15 +60,18 @@ function App() {
         </div>
       </section>
 
-      <section className="bg-neutral-900/80 py-16 px-6">
+      <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-6xl mx-auto text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-heading font-semibold text-white mb-2">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
             Nuestro enfoque personalizado
           </h2>
           <span className="block w-24 h-1 mx-auto bg-gray-900 rounded-full" />
+          <p className="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
+            Cada tratamiento está diseñado especialmente para ti
+          </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               icon: ClipboardCheck,
@@ -82,15 +102,15 @@ function App() {
             return (
               <div
                 key={idx}
-                className="relative bg-neutral-800/50 backdrop-blur-sm hover:bg-neutral-800/70 transition p-8 rounded-2xl shadow-lg"
+                className="relative bg-white hover:bg-gray-50 transition-all duration-300 p-6 rounded-lg shadow-lg hover:shadow-xl border border-gray-100"
               >
                 <div className="w-12 h-12 flex items-center justify-center bg-gray-900 rounded-full mx-auto mb-4">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-heading text-white mb-2">
+                <h3 className="text-lg font-heading font-semibold text-gray-900 mb-3 text-center">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-white/70 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed text-center">
                   {feature.desc}
                 </p>
               </div>

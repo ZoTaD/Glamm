@@ -1,17 +1,21 @@
 // src/services.tsx
 import React, { useState } from 'react';
 import ServiceCard from './serviceCard';
+import { ArrowLeft } from 'lucide-react';
 
 export type ServiceCategory = "cosmetologia" | "miradaPerfecta";
 
 export type FAQItem = { q: string; a: string };
-export const services: Record<ServiceCategory, {
+
+export interface Service {
   title: string;
   image: string;
   description: string;
   masInfo: string;
   faq: FAQItem[];
-}[]> = {
+}
+
+export const services: Record<ServiceCategory, Service[]> = {
   cosmetologia: [
     {
       title: "Dermaplanning",
@@ -198,41 +202,121 @@ export const services: Record<ServiceCategory, {
   ]
 };
 
+const CategoryCard: React.FC<{
+  title: string;
+  image: string;
+  description: string;
+  onClick: () => void;
+}> = ({ title, image, description, onClick }) => {
+  return (
+    <div className="relative h-[400px] w-full overflow-hidden group cursor-pointer rounded-lg shadow-lg" onClick={onClick}>
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-300 group-hover:scale-105"
+        style={{ backgroundImage: `url(${image})` }}
+      />
+      <div className="absolute inset-0 bg-black/50 flex flex-col justify-between p-8 z-10">
+        <div>
+          <h3 className="text-white text-3xl font-heading font-bold mb-4">
+            {title}
+          </h3>
+          <p className="text-white/90 text-lg leading-relaxed">
+            {description}
+          </p>
+        </div>
+        <button className="self-start border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white hover:text-black transition-all duration-300">
+          VER SERVICIOS
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const ServicesSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<ServiceCategory>("cosmetologia");
-  const selectedServices = services[activeCategory];
+  const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | null>(null);
+
+  const categories = [
+    {
+      key: 'cosmetologia' as ServiceCategory,
+      title: 'Cosmetología & Cosmiatría',
+      image: '/images/Dermaplanning.jpg', // Puedes cambiar por una imagen específica
+      description: 'Tratamientos faciales especializados para el cuidado integral de tu piel. Desde limpiezas profundas hasta tratamientos anti-edad.'
+    },
+    {
+      key: 'miradaPerfecta' as ServiceCategory,
+      title: 'Mirada Perfecta',
+      image: '/images/lifting.png', // Puedes cambiar por una imagen específica
+      description: 'Servicios especializados para realzar tu mirada. Lifting de pestañas y tratamientos para cejas que enmarcan tu belleza natural.'
+    }
+  ];
+
+  const handleCategorySelect = (category: ServiceCategory) => {
+    setSelectedCategory(category);
+  };
+
+  const handleGoBack = () => {
+    setSelectedCategory(null);
+  };
+
+  const getCategoryTitle = (category: ServiceCategory) => {
+    const cat = categories.find(c => c.key === category);
+    return cat ? cat.title : '';
+  };
 
   return (
-    <section id="services" className="bg-gray-50 py-24 px-6">
-      <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-5xl font-heading font-bold text-gray-900">
-          Nuestros Servicios
-        </h2>
-        <span className="block w-24 h-1 bg-gray-900 rounded-full mx-auto mt-4" />
-      </div>
+    <section id="services" className="bg-white py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        {!selectedCategory ? (
 
-      <div className="flex justify-center gap-6 mb-16">
-        {([
-          { key: 'cosmetologia', label: 'Cosmetología & Cosmiatría' },
-          { key: 'miradaPerfecta', label: 'Mirada Perfecta' },
-        ] as { key: ServiceCategory; label: string }[]).map(({ key, label }) => (
-          <button
-            key={key}
-            onClick={() => setActiveCategory(key)}
-            className={`px-8 py-3 rounded-full font-medium transition 
-              ${activeCategory === key
-                ? 'bg-gray-900 text-white'
-                : 'bg-white text-gray-900 shadow hover:shadow-lg'}`}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+          <>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-heading font-bold text-gray-900 mb-4">
+                Nuestros Servicios
+              </h2>
+              <span className="block w-24 h-1 bg-gray-900 rounded-full mx-auto" />
+              <p className="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
+                Descubre nuestras especialidades diseñadas para realzar tu belleza natural
+              </p>
+            </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {selectedServices.map((service, idx) => (
-          <ServiceCard key={idx} service={service} />
-        ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {categories.map((category) => (
+                <CategoryCard
+                  key={category.key}
+                  title={category.title}
+                  image={category.image}
+                  description={category.description}
+                  onClick={() => handleCategorySelect(category.key)}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+         
+          <>
+            <div className="mb-8">
+              <button
+                onClick={handleGoBack}
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                Volver a servicios
+              </button>
+
+              <div className="text-center mb-12">
+                <h2 className="text-5xl font-heading font-bold text-gray-900 mb-4">
+                  {getCategoryTitle(selectedCategory)}
+                </h2>
+                <span className="block w-24 h-1 bg-gray-900 rounded-full mx-auto" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services[selectedCategory].map((service, idx) => (
+                <ServiceCard key={idx} service={service} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
